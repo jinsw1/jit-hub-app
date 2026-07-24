@@ -1,3 +1,3 @@
 2026-07-24T09:15:22Z [Warning] Reason: OOMKilled Exit Code: 137 Memory Limit: 512Mi Pod: payment-service-demo Namespace: demo
 2026-07-24T09:18:47Z [Warning] EvictionThresholdMet: Attempting to reclaim ephemeral-storage, available: 1.8Gi < threshold 3Gi, condition: DiskPressure=True Node: demo-worker
-2026-07-24T09:21:03Z [Error] dial tcp 10.244.5.12:5432: i/o timeout, context deadline exceeded after 30000ms Service: order-service-demo
+2026-07-24T09:21:03Z [Error] context deadline exceeded: request to order-service.default.svc.cluster.local:8080 timed out after 30000ms, no response from upstream
