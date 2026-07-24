@@ -19,8 +19,8 @@ OLLAMA_TIMEOUT_SECONDS = float(os.environ.get("OLLAMA_TIMEOUT_SECONDS", "120"))
 LAMBDA_NOTIFY_URL = os.environ.get("LAMBDA_NOTIFY_URL", "")
 LAMBDA_NOTIFY_TIMEOUT_SECONDS = float(os.environ.get("LAMBDA_NOTIFY_TIMEOUT_SECONDS", "3"))
 
-# dr_action_needed 판단 기준 (팀 확정): LivenessProbeFailure/NetworkTimeout이면 DR 전환 필요
-_DR_ACTION_FAILURE_TYPES = {"LivenessProbeFailure", "NetworkTimeout"}
+# dr_action_needed 판단 기준 (팀 확정, 7/24 변경): OOMKilled/DiskPressure/NetworkTimeout이면 DR 전환 필요
+_DR_ACTION_FAILURE_TYPES = {"OOMKilled", "DiskPressure", "NetworkTimeout"}
 
 FAILURE_TYPES = [
     "OOMKilled",
