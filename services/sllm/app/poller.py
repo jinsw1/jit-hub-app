@@ -232,7 +232,8 @@ async def _notify_error_detected(entry: LogEntry) -> None:
 async def _send_to_analyze(entry: LogEntry) -> dict:
     async with httpx.AsyncClient(timeout=ANALYZE_TIMEOUT_SECONDS) as client:
         resp = await client.post(
-            ANALYZE_API_URL, json={"log_text": _to_log_text(entry)}
+            ANALYZE_API_URL,
+            json={"log_text": _to_log_text(entry), "cluster_name": entry.cluster_name},
         )
         resp.raise_for_status()
         return resp.json()
