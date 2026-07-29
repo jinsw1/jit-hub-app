@@ -109,8 +109,8 @@ jobs:
     if: needs.detect.outputs.any == 'true'
     runs-on: ubuntu-latest
     env:
-      #INFRA_BRANCH: master
-      INFRA_BRANCH: test/ci-cd # ci-cd 테스트용 브랜치 (26.07.21 2100)
+      INFRA_BRANCH: master
+      #INFRA_BRANCH: test/ci-cd # ci-cd 테스트용 브랜치 (26.07.21 2100)
     steps:
       - name: Set short SHA
         id: vars
@@ -119,7 +119,7 @@ jobs:
       - name: Checkout infra repo
         uses: actions/checkout@v4
         with:
-          repository: hacksungboo/jit-hub-infra  # 각자 저장소로 수정 필요
+          repository: jinsw1/jit-hub-infra  # 각자 저장소로 수정 필요
           ref: ${{ env.INFRA_BRANCH }}
           token: ${{ secrets.INFRA_REPO_TOKEN }}      # PAT (repo write)
           path: infra
